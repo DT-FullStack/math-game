@@ -1,9 +1,11 @@
 <form [formGroup]="mathForm">
-  {{ a }} + {{ b }} =
+  {{ a }} {{ operatorText }} {{ b }} =
   <input appAnswerHighlight formControlName="answer" />
 </form>
 
 <hr />
 <div class="box stats">
-  {{ secondsPerSolution | number: "1.1-3" }} seconds per answer
+  <div>{{ secondsPerSolution | number: "1.1-3" }} seconds per answer</div>
+  <div>{{ elapsedTime }} seconds elapsed</div>
+  <button (click)="resetGame()">Reset</button>
 </div>
