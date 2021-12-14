@@ -5,7 +5,16 @@
 
 <hr />
 <div class="box stats">
-  <div>{{ secondsPerSolution | number: "1.1-3" }} seconds per answer</div>
+  <div>{{ secondsPerSolution | number: "1.1-2" }} seconds per answer</div>
   <div>{{ elapsedTime }} seconds elapsed</div>
-  <button (click)="resetGame()">Reset</button>
+  <div>{{ numberSolved }} problems solved</div>
+  <div class="buttons">
+    <button class="green" (click)="startGame()" [disabled]="isRunning">
+      Start
+    </button>
+    <button (click)="resetGame()" [disabled]="!elapsedTime">Reset</button>
+    <button class="red" (click)="stopGame()" [disabled]="!isRunning">
+      Stop
+    </button>
+  </div>
 </div>
